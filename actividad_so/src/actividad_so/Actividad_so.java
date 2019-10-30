@@ -3,6 +3,7 @@ package actividad_so;
 
  
 import java.util.Map;
+import java.util.Scanner;
 import java.util.TreeMap;
 
 
@@ -14,18 +15,35 @@ public class Actividad_so {
        // Asignacion de quamtums 
         int quantum = 5; 
         int contador = 0;
+        int num1;
+        int num2;
+        int num3;
+        int num4;
+        int num5;
+        Scanner sc = new Scanner(System.in);
  
         TreeMap<Integer,Integer> ejecucion = new TreeMap<Integer,Integer>(); 
         TreeMap<Integer,Integer> rrtemp = new TreeMap<Integer,Integer>(); 
          
      // asignacion de rafagas de tiempo a procesos
-     
+        System.out.println("Inserte tiempo Proceso a");
+           num1 = sc.nextInt();
+        System.out.println("Inserte tiempo Proceso b");
+           num2 = sc.nextInt();
+        System.out.println("Inserte tiempo Proceso c");
+           num3 = sc.nextInt();
+        System.out.println("Inserte tiempo Proceso d");
+           num4 = sc.nextInt();
+        System.out.println("Inserte tiempo Proceso e");
+           num5 = sc.nextInt();
+           
         
-        ejecucion.put(1,53);
-        ejecucion.put(2,20);
-        ejecucion.put(3,15);
-        ejecucion.put(4,10);
-        ejecucion.put(5,53);
+        
+        ejecucion.put(1,num1);
+        ejecucion.put(2,num2);
+        ejecucion.put(3,num3);
+        ejecucion.put(4,num4);
+        ejecucion.put(5,num5);
   
          
          
@@ -59,7 +77,8 @@ public class Actividad_so {
                         }else{
                                 if(menosqua==0)
                                 {
-                                    System.out.println("Num_proceso  "+bb+" terminado "+ejecucion.get(bb)+" Milisegundos ");
+                                    System.out.println("Num_proceso  "+bb+" terminado "+ejecucion.get(bb)+" Milisegundos ");                                    
+                                     System.out.println("Num_proceso  Promedio "+(ejecucion.get(bb)*quantum/bb)+" Milisegundos ");
                                     ejecucion.remove(bb);
                                     int sumador=0;
                                      for (Map.Entry entry : ejecucion.entrySet()) 
@@ -68,6 +87,7 @@ public class Actividad_so {
                                     
                                     int entrada = Integer.parseInt(entry.getValue().toString());
                                     rrtemp.put(sumador, entrada);
+                                    
                                     }
                                    ejecucion.clear();
                                                               
@@ -78,18 +98,21 @@ public class Actividad_so {
                                     }
                                     
                                     rrtemp.clear();
-                                    //System.out.println("LLeno->>>>><<<<<<<<<<>>>"+ejecucion);
+                                  
                                      
                                      
                                 }
                              }
                         menosqua--;
                         contador--;
+                       
                     }
+                    
                 }
             }
-         System.out.println("Tiempo "+ejecucion+" ms.");
-         System.out.println("No. procesos "+ejecucion.size());
+         System.out.println("Quantum "+(num1+ num2+num3+num4+num5/quantum)+" .");
+         
+     
   
     }
 }
